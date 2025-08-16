@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
     outDir: "dist/spa",
   },
   plugins: [react(), expressPlugin()],
-  base: process.env.VITE_BASE_PATH || "/JabezSelvan-Portfolio",
+  base: process.env.VERCEL ? "/" : (process.env.NODE_ENV === "development" ? "/" : "/JabezSelvan-Portfolio/"),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
